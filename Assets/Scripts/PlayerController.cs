@@ -7,11 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     private Transform player = null;
 
-    private int IsRun => Animator.StringToHash("IsRun");
-
-    private int Braking => Animator.StringToHash("Braking");
-
-    private Animator animator = null;
+    /// <summary>
+    /// プレイヤーアニメーター呼び出し用
+    /// </summary>
+    private PlayerAnimator anim = null;
 
     private SpriteRenderer spriteRenderer = null;
 
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         TryGetComponent(out player);
-        TryGetComponent(out animator);
+        TryGetComponent(out anim);
         TryGetComponent(out spriteRenderer);
 
         timer = 0;
@@ -58,8 +57,8 @@ public class PlayerController : MonoBehaviour
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
 
-        animator.SetBool(IsRun, !Mathf.Approximately(0, horizontal));
-        animator.SetFloat(Braking, timer);
+        anim.SetRunAnim(!Mathf.Approximately(0, horizontal)); // 走りアニメーション
+        anim.SetBrakingAnim(timer); // ブレーキアニメーション
 
         var pos = player.position;
 
