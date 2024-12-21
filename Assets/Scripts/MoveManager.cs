@@ -29,7 +29,7 @@ public class MoveManager
     /// </summary>
     public float BrakingTimer => current == null ? 0 : current.move.BrakingTimer;
 
-    public void OnAwake(MonoBehaviour parent)
+    public MoveManager(MonoBehaviour parent)
     {
         parent.TryGetComponent(out MoveControl move);
         moveDict = new Dictionary<MoveType, MoveControlInfo>()

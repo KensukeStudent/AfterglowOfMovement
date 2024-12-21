@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// アニメーターで使用しているキー設定
 /// </summary>
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator
 {
     private int IsRun => Animator.StringToHash("IsRun");
 
@@ -11,9 +11,9 @@ public class PlayerAnimator : MonoBehaviour
 
     private Animator animator = null;
 
-    private void Awake()
+    public PlayerAnimator(MonoBehaviour parent)
     {
-        TryGetComponent(out animator);
+        parent.TryGetComponent(out animator);
     }
 
     /// <summary>

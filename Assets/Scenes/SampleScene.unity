@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 239171939}
   - component: {fileID: 239171938}
   - component: {fileID: 239171941}
+  - component: {fileID: 239171942}
   m_Layer: 0
   m_Name: Unitychan_Idle_1
   m_TagString: Untagged
@@ -240,6 +241,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373a85fa530a27a4fa03b1f1a86026cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &239171942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239171937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76bfe759f666c8409b132408aff7b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
