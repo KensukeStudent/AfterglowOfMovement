@@ -81,8 +81,6 @@ public class PlayerController : MonoBehaviour
             pos.x += currentVelocity * Time.deltaTime;
 
             timer -= Time.deltaTime / duration;
-
-            Debug.Log($"add: {addVelocity}. currentVelocity: {currentVelocity}. timer: {timer}");
         }
 
         player.position = pos;
