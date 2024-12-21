@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+/// <summary>
+/// 移動後の滑りを指定秒数行うプレイヤークラス
+/// </summary>
+public class PlayerController : MonoBehaviour
 {
     private Transform player = null;
 
@@ -39,6 +40,9 @@ public class NewBehaviourScript : MonoBehaviour
     /// </summary>
     private float currentVelocity = 0;
 
+    /// <summary>
+    /// アニメーション時間
+    /// </summary>
     private float timer = 0;
 
     private void Awake()
@@ -73,7 +77,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             // 余韻アニメーション再生
             int direction = spriteRenderer.flipX ? -1 : 1;
-            float addVelocity = direction * AddVelocity(Mathf.Abs(velocity)) * 2;
+            float addVelocity = direction * AddVelocity(Mathf.Abs(velocity));
             currentVelocity += addVelocity * Time.deltaTime;
             pos.x += currentVelocity * Time.deltaTime;
 
@@ -90,10 +94,9 @@ public class NewBehaviourScript : MonoBehaviour
     /// </summary>
     private float AddVelocity(float vi)
     {
-        // s = vi*t + 0.5 a * t^2
-        // 0.5*a*t^2 = s - vi*t
-        // a = s-vi*t / 0.5*t^2
+        // s = vi*t + 1/2 a * t^2
+        // a = 2s - 2vi*t / t^2
 
-        return (brakeDistance - vi * duration) / (0.5f * Mathf.Pow(duration, 2));
+        return (2 * brakeDistance - 2 * vi * duration) / Mathf.Pow(duration, 2);
     }
 }
